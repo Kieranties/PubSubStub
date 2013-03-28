@@ -15,17 +15,17 @@ namespace PubSubStub
         protected IDisposable disposer;
 
         /// <summary>
-        /// The methods to process when an error occurs
+        /// The actions to process when an error occurs
         /// </summary>
         protected Action<Exception> errorHandler;
 
         /// <summary>
-        /// The methods to process when data is received from the publisher
+        /// The actions to process when data is received from the publisher
         /// </summary>
         protected Action<T> nextHandler;
 
         /// <summary>
-        /// The method to process when the publishers has completed it's tasks
+        /// The actions to process when the publishers has completed it's tasks
         /// </summary>
         protected Action completeHandler;
 

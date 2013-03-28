@@ -5,7 +5,7 @@ namespace PubSubStub
 {
     /// <summary>
     /// A generic, disposable class to allow instances of T to be removed from
-    /// instances of K
+    /// instances of TCollection
     /// </summary>
     /// <typeparam name="T">The instance type of subscriber.</typeparam>
     /// <typeparam name="TCollection">The instance type collection.</typeparam>

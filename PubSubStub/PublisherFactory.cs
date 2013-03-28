@@ -15,7 +15,7 @@ namespace PubSubStub
         public static readonly PublisherFactory Instance = new PublisherFactory();
 
         /// <summary>
-        /// The instntiated publishers
+        /// The instantiated publishers
         /// </summary>
         private static readonly ConcurrentDictionary<Type, IPublisher> _publishers = new ConcurrentDictionary<Type, IPublisher>();
 
