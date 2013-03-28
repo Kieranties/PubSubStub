@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSubStub", "PubSubStub\PubSubStub.csproj", "{F8D0272E-253C-4B2C-BE4A-657DDA23A75F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meta", "Meta", "{1E3877F6-F48B-4AEF-AE70-C16F45B52367}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8D0272E-253C-4B2C-BE4A-657DDA23A75F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D0272E-253C-4B2C-BE4A-657DDA23A75F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D0272E-253C-4B2C-BE4A-657DDA23A75F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D0272E-253C-4B2C-BE4A-657DDA23A75F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
