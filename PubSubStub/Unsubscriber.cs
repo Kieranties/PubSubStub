@@ -8,14 +8,12 @@ namespace PubSubStub
     /// instances of TCollection
     /// </summary>
     /// <typeparam name="T">The instance type of subscriber.</typeparam>
-    /// <typeparam name="TCollection">The instance type collection.</typeparam>
-    public class Unsubscriber<T, TCollection> : IDisposable  
-        where TCollection: ICollection<T>
+    public class Unsubscriber<T> : IDisposable  
     {
         /// <summary>
         /// The subscriber collection
         /// </summary>
-        protected readonly TCollection subscribers;
+        protected readonly ICollection<T> subscribers;
 
         /// <summary>
         /// The subscriber instance
@@ -23,11 +21,11 @@ namespace PubSubStub
         protected readonly T subscriber;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Unsubscriber{T, TCollection}"/> class.
+        /// Initializes a new instance of the <see cref="Unsubscriber{T}"/> class.
         /// </summary>
         /// <param name="subscriber">The subscriber.</param>
         /// <param name="subscribers">The subscribers.</param>
-        public Unsubscriber(T subscriber, TCollection subscribers)
+        public Unsubscriber(T subscriber, ICollection<T> subscribers)
         {
             this.subscribers = subscribers;
             this.subscriber = subscriber;            
@@ -38,7 +36,7 @@ namespace PubSubStub
         /// </summary>
         public virtual void Dispose()
         {
-            if (subscriber != null && null != subscribers
+            if (subscriber != null && subscribers != null
                 && subscribers.Contains(subscriber))
             {
                 subscribers.Remove(subscriber);

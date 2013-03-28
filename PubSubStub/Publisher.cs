@@ -39,7 +39,7 @@ namespace PubSubStub
             if (!subscribers.Contains(subscriber))
                 subscribers.Add(subscriber);
 
-            return new Unsubscriber<IObserver<T>, ConcurrentCollection<IObserver<T>>>(subscriber, subscribers);
+            return new Unsubscriber<IObserver<T>>(subscriber, subscribers);
         }
 
         /// <summary>
