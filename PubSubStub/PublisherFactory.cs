@@ -17,12 +17,12 @@ namespace PubSubStub
         /// <summary>
         /// The instantiated publishers
         /// </summary>
-        private static readonly ConcurrentDictionary<Type, IPublisher> _publishers = new ConcurrentDictionary<Type, IPublisher>();
+        private readonly ConcurrentDictionary<Type, IPublisher> _publishers = new ConcurrentDictionary<Type, IPublisher>();
 
         /// <summary>
         /// Prevents a default instance of the <see cref="PublisherFactory"/> class from being created.
         /// </summary>
-        private PublisherFactory() { }
+        internal PublisherFactory() { }
 
         /// <summary>
         /// Returns the active publisher instance for type T.
@@ -51,14 +51,20 @@ namespace PubSubStub
             if (_publishers.TryAdd(typeof (T), publisher))
             {
                 // allow the publisher to remove itself from the factory collection
-                publisher.Complete += (sender, args) =>
-                                        {
-                                            IPublisher removed;
-                                            _publishers.TryRemove(typeof(T), out removed);
-                                        };
+                publisher.Complete += (sender, args) => Remove<T>();
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Removes this instance from the publisher collection.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        protected void Remove<T>()
+        {
+            IPublisher removed;
+            _publishers.TryRemove(typeof(T), out removed);
         }
     }
 }

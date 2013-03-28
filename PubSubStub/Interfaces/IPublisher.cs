@@ -9,7 +9,7 @@ namespace PubSubStub.Interfaces
     public interface IPublisher<T>: IObservable<T>, IDisposable, IPublisher
     {
         /// <summary>
-        /// Occurs when the publihser has completed.
+        /// Occurs when the publisher has completed.
         /// </summary>
         event EventHandler Complete;
 
