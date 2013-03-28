@@ -46,8 +46,9 @@ namespace PubSubStub
         /// </summary>
         public virtual void Unsubscribe()
         {
-            if (disposer != null)
-                disposer.Dispose();
+            var handler = disposer;
+            if (handler != null)
+                handler.Dispose();
         }
 
         /// <summary>
@@ -55,8 +56,9 @@ namespace PubSubStub
         /// </summary>
         public virtual void OnCompleted()
         {
-            if (completeHandler != null)
-                completeHandler.Invoke();
+            var handler = completeHandler;
+            if (handler != null)
+                handler.Invoke();
 
             Unsubscribe();
         }
@@ -67,10 +69,9 @@ namespace PubSubStub
         /// <param name="data">The data.</param>
         public virtual void OnNext(T data)
         {
-            if (nextHandler != null)
-            {
+            var handler = nextHandler;
+            if (handler != null)
                 nextHandler.Invoke(data);
-            }
         }
 
         /// <summary>
@@ -79,10 +80,9 @@ namespace PubSubStub
         /// <param name="error">The error.</param>
         public virtual void OnError(Exception error)
         {
-            if (errorHandler != null)
-            {
+            var handler = errorHandler;
+            if (handler != null)
                 errorHandler.Invoke(error);
-            }
         }
 
         /// <summary>
