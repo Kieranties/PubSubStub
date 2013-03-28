@@ -45,7 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\Generic\ConcurrentCollectionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublisherFactoryTests.cs" />
+    <Compile Include="PublisherTests.cs" />
+    <Compile Include="SubscriberTests.cs" />
+    <Compile Include="UnsubscriberTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PubSubStub\PubSubStub.csproj">
