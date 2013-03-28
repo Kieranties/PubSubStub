@@ -8,6 +8,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meta", "Meta", "{1E3877F6-F
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSubStub.Tests", "PubSubStub.Tests\PubSubStub.Tests.csproj", "{A697D362-8D0F-4EDE-9716-0F711AF08B6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +20,10 @@ Global
 		{F8D0272E-253C-4B2C-BE4A-657DDA23A75F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8D0272E-253C-4B2C-BE4A-657DDA23A75F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8D0272E-253C-4B2C-BE4A-657DDA23A75F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A697D362-8D0F-4EDE-9716-0F711AF08B6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A697D362-8D0F-4EDE-9716-0F711AF08B6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A697D362-8D0F-4EDE-9716-0F711AF08B6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A697D362-8D0F-4EDE-9716-0F711AF08B6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
