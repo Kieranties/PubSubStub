@@ -35,6 +35,9 @@ namespace PubSubStub
         /// <param name="publisher">The publisher.</param>
         public virtual void Subscribe(IPublisher<T> publisher)
         {
+            if(publisher == null)
+                throw new ArgumentNullException("publisher", "Cannot subscribe to a null publisher");
+
             if (disposer != null)
                 disposer.Dispose();
 
