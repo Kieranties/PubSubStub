@@ -36,9 +36,13 @@ namespace PubSubStub
         /// <returns>An IDisposable implementation to allow subscribers to unsubscribe from events</returns>
         public virtual IDisposable Subscribe(IObserver<T> subscriber)
         {
-            if (!subscribers.Contains(subscriber))
-                subscribers.Add(subscriber);
+            if(subscriber == null)
+                throw new ArgumentNullException("subscriber", "Cannot subscribe a null subscriber");
 
+            if (subscribers.Contains(subscriber))
+                return null;
+
+            subscribers.Add(subscriber);
             return new Unsubscriber<IObserver<T>>(subscriber, subscribers);
         }
 
