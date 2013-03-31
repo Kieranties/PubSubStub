@@ -10,6 +10,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meta", "Meta", "{1E3877F6-F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSubStub.Tests", "PubSubStub.Tests\PubSubStub.Tests.csproj", "{A697D362-8D0F-4EDE-9716-0F711AF08B6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSubStub.TestHarness", "PubSubStub.TestHarness\PubSubStub.TestHarness.csproj", "{0E355423-293A-4BC0-9FDF-51C9508B515D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A90109B0-60C1-403C-9F22-43AF77BB67B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,8 +28,16 @@ Global
 		{A697D362-8D0F-4EDE-9716-0F711AF08B6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A697D362-8D0F-4EDE-9716-0F711AF08B6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A697D362-8D0F-4EDE-9716-0F711AF08B6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E355423-293A-4BC0-9FDF-51C9508B515D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E355423-293A-4BC0-9FDF-51C9508B515D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E355423-293A-4BC0-9FDF-51C9508B515D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E355423-293A-4BC0-9FDF-51C9508B515D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0E355423-293A-4BC0-9FDF-51C9508B515D} = {A90109B0-60C1-403C-9F22-43AF77BB67B0}
+		{A697D362-8D0F-4EDE-9716-0F711AF08B6C} = {A90109B0-60C1-403C-9F22-43AF77BB67B0}
 	EndGlobalSection
 EndGlobal
