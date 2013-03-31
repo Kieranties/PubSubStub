@@ -1,4 +1,6 @@
-﻿using PubSubStub.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
+using PubSubStub.Collections.Generic;
 using PubSubStub.Interfaces;
 using System;
 
@@ -15,6 +17,10 @@ namespace PubSubStub
         /// </summary>
         protected readonly ConcurrentCollection<IObserver<T>> subscribers = new ConcurrentCollection<IObserver<T>>();
 
+        protected IEnumerable<IObserver<T>> ActiveSubscribers
+        {
+            get { return subscribers.Where(s => s != null); }
+        } 
         /// <summary>
         /// Occurs when the publisher has completed.
         /// </summary>
@@ -52,8 +58,8 @@ namespace PubSubStub
         /// <param name="data">The data.</param>
         public virtual void Publish(T data)
         {
-            foreach (var subscriber in subscribers)
-                subscriber.OnNext(data);            
+            foreach (var subscriber in ActiveSubscribers)
+                subscriber.OnNext(data);
         }
 
         /// <summary>
@@ -62,7 +68,7 @@ namespace PubSubStub
         /// </summary>
         public virtual void Dispose()
         {
-            foreach (var subscriber in subscribers)
+            foreach (var subscriber in ActiveSubscribers)
                 subscriber.OnCompleted();
 
             OnComplete();
