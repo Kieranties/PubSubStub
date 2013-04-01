@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using PubSubStub.Collections.Generic;
 using PubSubStub.TestHarness.Model;
@@ -11,7 +9,7 @@ namespace PubSubStub.TestHarness
     public class Program
     {
         const string OutputFormat = "Subscriber: {0} - {1} / {2}";
-        private const int max = 50;
+        private const int Max = 50;
         private static Publisher<Model1> _model1Publisher = new Publisher<Model1>();
         private static Publisher<Model2> _model2Publisher = new Publisher<Model2>();
         
@@ -27,7 +25,7 @@ namespace PubSubStub.TestHarness
             PublisherFactory.Instance.Register(_model2Publisher);
 
             // subscribers
-            for (var i = 0; i < max; i++)
+            for (var i = 0; i < Max; i++)
             {
                 SetModel1(i);
                 SetModel2(i);
@@ -41,7 +39,7 @@ namespace PubSubStub.TestHarness
         {
             while (true)
             {
-                var rnd = new Random().Next(1, max * 2);
+                var rnd = new Random().Next(1, Max * 2);
                 SetModel1(rnd - 1);
                 SetModel2(rnd - 1);
                 Thread.Sleep((int) Math.Floor((float)rnd/10));
@@ -52,7 +50,7 @@ namespace PubSubStub.TestHarness
         {
             while (true)
             {
-                var rnd = new Random().Next(1, max * 2);
+                var rnd = new Random().Next(1, Max * 2);
                 _model1Publisher.Publish(new Model1 { Description = "DESC: " + rnd, Name = "NAME: " + rnd });
                 _model2Publisher.Publish(new Model2 { Message = "MSG: " + rnd, Name = "NAME: " + rnd });
 
@@ -71,7 +69,7 @@ namespace PubSubStub.TestHarness
 
             sub = new Subscriber<Model1>();
             sub.BindOnNext((data) => Console.WriteLine(OutputFormat, "Model1 " + index, data.Name, data.Description));
-            sub.Subscribe(_model1Publisher);
+            sub.Subscribe(PublisherFactory.Instance.Resolve<Model1>());
             _model1Subscribers.Add(sub);
         }
 
@@ -86,7 +84,7 @@ namespace PubSubStub.TestHarness
 
             sub = new Subscriber<Model2>();
             sub.BindOnNext((data) => Console.WriteLine(OutputFormat, "Model2 " + index, data.Name, data.Message));
-            sub.Subscribe(_model2Publisher);
+            sub.Subscribe(PublisherFactory.Instance.Resolve<Model2>());
             _model2Subscribers.Add(sub);
         }
     }
